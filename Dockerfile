@@ -5,6 +5,8 @@ FROM ${FRM}:${TAG}
 ARG FRM
 ARG TAG
 
+EXPOSE 3000
+
 ADD scripts /
 
 RUN /bin/bash /install.sh \
