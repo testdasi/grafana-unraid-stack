@@ -8,15 +8,14 @@ ARG TAG
 ENV GRAFANA_PORT 3000
 ENV LOKI_PORT 3100
 ENV PROMTAIL_PORT 9080
-ENV INFLUXDB_GUI_PORT 8083
 ENV INFLUXDB_HTTP_PORT 8086
+ENV HDDTEMP_PORT 7634
 # Telegraf does not expose any port
-# HDDTemp runs on 7634 locally
 
 EXPOSE ${GRAFANA_PORT}/tcp \
     ${LOKI_PORT}/tcp \
     ${PROMTAIL_PORT}/tcp \
-    ${INFLUXDB_GUI_PORT}/tcp \
+    ${HDDTEMP_PORT}/tcp \
     ${INFLUXDB_HTTP_PORT}/tcp
 
 ADD config /temp
