@@ -10,7 +10,7 @@ rm -f /etc/init.d/influxdb \
     && cp /temp/influxdb /etc/init.d/ \
     && chmod +x /etc/init.d/influxdb
 
-# replace telegraf
+# replace telegraf service
 rm -f /etc/init.d/telegraf \
     && cp /temp/telegraf /etc/init.d/ \
     && chmod +x /etc/init.d/telegraf
