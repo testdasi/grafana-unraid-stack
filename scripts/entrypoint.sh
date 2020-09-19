@@ -14,7 +14,7 @@ service influxdb start
 ### HDDTemp ###
 echo ''
 echo "[info] Run hddtemp in background on port $HDDTEMP_PORT"
-hddtemp -q -d /rootfs/dev/disk/by-id/ata*
+hddtemp --quiet --daemon --file=/config/hddtemp/hddtemp.db --listen='127.0.0.1' --port=$HDDTEMP_PORT /rootfs/dev/disk/by-id/ata*
 
 ### Telegraf ###
 echo ''
