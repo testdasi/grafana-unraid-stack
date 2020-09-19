@@ -8,3 +8,6 @@ mkdir -p /config/grafana/data/plugins \
     && mkdir -p /config/grafana/provisioning/plugins \
     && cp -n /temp/grafana.ini /config/grafana/
 echo '[info] grafana fixed.'
+
+mkdir -p /config/telegraf/telegraf.d
+echo '[info] telegraf fixed.'
