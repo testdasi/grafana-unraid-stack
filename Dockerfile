@@ -7,6 +7,7 @@ ARG TAG
 
 EXPOSE 3000
 
+ADD config /temp
 ADD scripts /
 
 RUN /bin/bash /install.sh \
