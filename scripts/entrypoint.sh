@@ -11,6 +11,11 @@ echo ''
 echo "[info] Run influxdb as service on port $INFLUXDB_HTTP_PORT"
 service influxdb start
 
+### HDDTemp ###
+echo ''
+echo "[info] Run hddtemp in background on port $HDDTEMP_PORT"
+hddtemp -q -d /rootfs/dev/disk/by-id/ata*
+
 ### Telegraf ###
 echo ''
 echo "[info] Run telegraf as service"
@@ -24,6 +29,6 @@ service grafana-server start
 ### Infinite loop to stop docker from stopping ###
 while true
 do
-    echo 'Running...'
+    echo 'All your base are belong to us...'
     sleep 3600s
 done
