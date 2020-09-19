@@ -25,6 +25,8 @@ ADD scripts /
 RUN /bin/bash /install.sh \
     && rm -f /install.sh
 
+VOLUME ["/config"]
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM} with tag ${TAG}" >> /build_date.info
