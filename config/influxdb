@@ -21,8 +21,8 @@ INFLUXD_OPTS=
 NAME=influxdb
 
 # User and group
-USER=influxdb
-GROUP=influxdb
+USER=root
+GROUP=root
 
 # Check for sudo or root privileges before continuing
 if [ "$UID" != "0" ]; then
