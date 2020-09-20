@@ -34,5 +34,6 @@ mkdir -p /config/grafana/data/plugins \
     && mkdir -p /config/grafana/provisioning/datasources \
     && mkdir -p /config/grafana/provisioning/notifiers \
     && mkdir -p /config/grafana/provisioning/plugins \
+    && rm -f /config/grafana/grafana-server.pid \
     && cp -n /temp/grafana.ini /config/grafana/
 echo '[info] grafana fixed.'
