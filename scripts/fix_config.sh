@@ -4,6 +4,7 @@ mkdir -p /config/influxdb \
     && mkdir -p /data/influxdb/data \
     && mkdir -p /data/influxdb/meta \
     && mkdir -p /data/influxdb/wal \
+    && rm -f /config/influxdb/influxd.pid \
     && cp -n /temp/influxdb.conf /config/influxdb/
 echo '[info] influxdb fixed.'
 
@@ -18,7 +19,8 @@ mkdir -p /config/hddtemp \
 echo '[info] hddtemp fixed.'
 
 mkdir -p /config/telegraf/telegraf.d \
-    && echo 'telegraf.conf TBC - still need to work on this'
+    && rm -f /config/telegraf/telegraf.pid \
+    && cp -n /temp/telegraf.conf /config/telegraf/
 echo '[info] telegraf fixed.'
 
 mkdir -p /config/promtail \
