@@ -11,6 +11,11 @@ echo ''
 echo "[info] Run influxdb as service on port $INFLUXDB_HTTP_PORT"
 service influxdb start
 
+### Loki ###
+echo ''
+echo "[info] Run loki as daemon on port $LOKI_PORT"
+start-stop-daemon --start -b --exec /usr/sbin/loki -- -config.file=/config/loki/loki-local-config.yaml
+
 ### HDDTemp ###
 echo ''
 echo "[info] Run hddtemp in background on port $HDDTEMP_PORT"
@@ -20,6 +25,11 @@ hddtemp --quiet --daemon --file=/config/hddtemp/hddtemp.db --listen='127.0.0.1' 
 echo ''
 echo "[info] Run telegraf as service"
 service telegraf start
+
+### HDDTemp ###
+echo ''
+echo "[info] Run promtail in background on port $PROMTAIL_PORT"
+start-stop-daemon --start -b --exec /usr/sbin/promtail -- -config.file=/config/promtail/promtail.yml
 
 ### Grafana ###
 echo ''
