@@ -35,7 +35,7 @@ LOG_DIR=/config/grafana/log
 CONF_FILE=$CONF_DIR/grafana.ini
 PROVISIONING_CFG_DIR=$CONF_DIR/provisioning
 MAX_OPEN_FILES=10000
-PID_FILE=/var/run/$NAME.pid
+PID_FILE=$CONF_DIR/$NAME.pid
 DAEMON=/usr/sbin/$NAME
 RESTART_ON_UPGRADE=true
 
