@@ -1,4 +1,4 @@
-# grafana-unraid-stack
+# Grafana-Unraid-Stack
 Meet Gus! He has everything you need to start monitoring Unraid (Grafana - Influxdb - Telegraf - Loki - Promtail).
 
 A sleek made-for-Unraid dashboard is pre-installed.
