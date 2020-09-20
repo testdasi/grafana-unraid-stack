@@ -18,13 +18,17 @@ A sleek made-for-Unraid dashboard is pre-installed.
 ## Bits and bobs
 * Use port 3006 because grafana default port 3000 is rather popular among other apps
 * I highly recommend you don't change the port variables unless you know how to deal with various config files. Things are rather tightly integrated.
-* Should be run on "Host" network for max exposure to the server network metrics. You can use bridge if you don't care too much about host network reporting (but remember to map port 3006)
+* Need to run privileged=true
+  * Should be run on "Host" network for max exposure to the server network metrics. You can use bridge if you don't care too much about host network reporting (but remember to map port 3006)
+  * The read-only paths are required for Telegraf to report on host devices.
 * Data is separated from config so, for example, you can have the data in RAM so it gets reset after reboot.
+
 
 ## Usage
     docker run -d \
         --name=<container name> \
         --net='host' \
+        --privileged=true \
         -v <host path for config>:/config \
         -v <host path for data>:/data \
         -e USE_HDDTEMP=no \
@@ -32,12 +36,12 @@ A sleek made-for-Unraid dashboard is pre-installed.
         -e LOKI_PORT=3100 \
         -e PROMTAIL_PORT=9086 \
         -e GRAFANA_PORT=3006 \
-        -v /var/run/utmp:/var/run/utmp \
-        -v /var/run/docker.sock:/var/run/docker.sock \
-        -v /:/rootfs \
-        -v /sys:/rootfs/sys \
-        -v /etc:/rootfs/etc \
-        -v /proc:/rootfs/proc \
+        -v /var/run/utmp:/var/run/utmp:ro \
+        -v /var/run/docker.sock:/var/run/docker.sock:ro \
+        -v /:/rootfs:ro \
+        -v /sys:/rootfs/sys:ro \
+        -v /etc:/rootfs/etc:ro \
+        -v /proc:/rootfs/proc:ro \
         -e HOST_PROC=/rootfs/proc \
         -e HOST_SYS=/rootfs/sys \
         -e HOST_ETC=/rootfs/etc \
