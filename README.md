@@ -1,5 +1,5 @@
 # Grafana-Unraid-Stack
-Meet Gus! He has everything you need to start monitoring Unraid (Grafana - Influxdb - Telegraf - Loki - Promtail).
+Meet Gus! He has everything you need to start monitoring Unraid (Grafana - Influxdb - Telegraf - Loki - Promtail). 1 docker instead of 5+!
 
 A sleek made-for-Unraid dashboard is pre-installed.
 ![Preview](https://raw.githubusercontent.com/testdasi/grafana-unraid-stack-base/master/grafana-unraid-stack-screen.png)
@@ -50,35 +50,29 @@ A sleek made-for-Unraid dashboard is pre-installed.
 
 ## Unraid example
     docker run -d \
-        --name='OpenVPN-HyDeSa' \
-        --net='bridge' \
-        --cap-add=NET_ADMIN \
-        -v '/mnt/user/appdata/openvpn-hyrosa':'/config':'rw' \
-        -v '/mnt/user/downloads/':'/data':'rw' \
-        -e 'DNS_SERVERS'='127.2.2.2' \
-        -e 'HOST_NETWORK'='192.168.1.0/24' \
-        -e 'SERVER_IP'='192.168.1.2' \
-        -p '8000:8000/tcp' \
-        -p '8153:53/tcp' \
-        -p '8153:53/udp' \
-        -p '9118:9118/tcp' \
-        -p '8118:8118/tcp' \
-        -p '8080:8080/tcp' \
-        -p '8090:8090/tcp' \
-        -p '3000:3000/tcp' \
-        -p '5076:5076/tcp' \
-        -e 'LAUNCHER_GUI_PORT'='8000' \
-        -e 'DNS_SERVER_PORT'='53' \
-        -e 'SOCKS_PROXY_PORT'='9118' \
-        -e 'HTTP_PROXY_PORT'='8118' \
-        -e 'USENET_HTTP_PORT'='8080' \
-        -e 'USENET_HTTPS_PORT'='8090' \
-        -e 'TORRENT_GUI_PORT'='3000' \
-        -e 'SEARCHER_GUI_PORT'='5076' \
-        -e 'LANG'='en_GB.UTF-8' \
+        --name='Grafana-Unraid-Stack' \
+        --net='host' \
+        --privileged=true \
+        -v '/mnt/user/appdata/Grafana-Unraid-Stack/config':'/config':'rw' \
+        -v '/mnt/user/appdata/Grafana-Unraid-Stack/data':'/data':'rw' \
+        -e 'USE_HDDTEMP'='no' \
+        -e 'INFLUXDB_HTTP_PORT'='8086' \
+        -e 'LOKI_PORT'='3100' \
+        -e 'PROMTAIL_PORT'='9086' \
+        -e 'GRAFANA_PORT'='3006' \
+        -v '/':'/rootfs':'ro' \
+        -v '/etc':'/rootfs/etc':'ro' \
+        -v '/proc':'/rootfs/proc':'ro' \
+        -v '/sys':'/rootfs/sys':'ro' \
+        -v '/var/run/docker.sock':'/var/run/docker.sock':'ro' \
+        -v '/var/run/utmp':'/var/run/utmp':'ro' \
+        -e 'HOST_ETC'='/rootfs/etc' \
+        -e 'HOST_PROC'='/rootfs/proc' \
+        -e 'HOST_SYS'='/rootfs/sys' \
+        -e 'HOST_MOUNT_PREFIX'='/rootfs' \
         -e TZ="Europe/London" \
         -e HOST_OS="Unraid" \
-        'testdasi/openvpn-hyrosa:stable-amd64' 
+        'testdasi/grafana-unraid-stack:stable-amd64'
 
 ## Notes
 * I code for fun and my personal uses; hence, these niche functionalties that nobody asks for. ;)
