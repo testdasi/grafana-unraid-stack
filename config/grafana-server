@@ -24,8 +24,8 @@ NAME=grafana-server
 DESC="Grafana Server"
 DEFAULT=/etc/default/$NAME
 
-GRAFANA_USER=grafana
-GRAFANA_GROUP=grafana
+GRAFANA_USER=root
+GRAFANA_GROUP=root
 GRAFANA_HOME=/usr/share/grafana
 CONF_DIR=/config/grafana
 WORK_DIR=$GRAFANA_HOME
