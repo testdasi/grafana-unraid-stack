@@ -102,7 +102,7 @@ name=telegraf
 daemon=/usr/bin/telegraf
 
 # pid file for the daemon
-pidfile=/var/run/telegraf/telegraf.pid
+pidfile=/config/telegraf/telegraf.pid
 piddir=`dirname $pidfile`
 
 if [ ! -d "$piddir" ]; then
