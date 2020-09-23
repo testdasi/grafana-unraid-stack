@@ -15,7 +15,8 @@ ENV GRAFANA_PORT 3006
 EXPOSE ${GRAFANA_PORT}/tcp \
     ${LOKI_PORT}/tcp \
     ${PROMTAIL_PORT}/tcp \
-    ${INFLUXDB_HTTP_PORT}/tcp
+    ${INFLUXDB_HTTP_PORT}/tcp \
+    ${INFLUXDB_RPC_PORT}/tcp
 
 ADD config /temp
 ADD scripts /
