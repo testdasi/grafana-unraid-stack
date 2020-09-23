@@ -56,5 +56,5 @@ mkdir -p /config/grafana/data/plugins \
 # cp -n /temp/grafana.db /config/grafana/data/ \
 sed -i "s| 3000| $GRAFANA_PORT|g" '/config/grafana/grafana.ini'
 sed -i "s|:8086|:$INFLUXDB_HTTP_PORT|g" '/config/grafana/provisioning/datasources/InfluxDB-Telegraf.yml'
-sed -i "s|:3100|: $LOKI_PORT|g" '/config/grafana/provisioning/datasources/Loki.yml'
+sed -i "s|:3100|:$LOKI_PORT|g" '/config/grafana/provisioning/datasources/Loki.yml'
 echo '[info] grafana fixed.'
