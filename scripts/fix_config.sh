@@ -7,6 +7,7 @@ mkdir -p /config/influxdb \
     && rm -f /config/influxdb/influxd.pid \
     && cp -n /temp/influxdb.conf /config/influxdb/
 sed -i "s|:8086|:$INFLUXDB_HTTP_PORT|g" '/config/influxdb/influxdb.conf'
+sed -i "s|:8088|:$INFLUXDB_RPC_PORT|g" '/config/influxdb/influxdb.conf'
 echo '[info] influxdb fixed.'
 
 mkdir -p /config/loki \
