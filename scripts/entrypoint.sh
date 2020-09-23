@@ -76,7 +76,7 @@ do
         then
             echo '[warn] hddtemp crashed, restarting'
             crashed=$(( $crashed + 1 ))
-            danted -D -f /root/dante/danted.conf
+            hddtemp --quiet --daemon --file=/config/hddtemp/hddtemp.db --listen='127.0.0.1' --port=7634 /rootfs/dev/disk/by-id/ata*
         else
             echo "[info] hddtemp PID: $pidlist"
         fi
