@@ -40,13 +40,21 @@ echo '[info] promtail fixed.'
 
 mkdir -p /config/grafana/data/plugins \
     && mkdir -p /config/grafana/log \
-    && mkdir -p /config/grafana/data \
+    && mkdir -p /config/grafana/data/dashboards \
     && mkdir -p /config/grafana/provisioning/dashboards \
     && mkdir -p /config/grafana/provisioning/datasources \
     && mkdir -p /config/grafana/provisioning/notifiers \
     && mkdir -p /config/grafana/provisioning/plugins \
     && rm -f /config/grafana/grafana-server.pid \
+    && cp -n /temp/InfluxDB-Telegraf.yml /config/grafana/provisioning/datasources/ \
+    && cp -n /temp/Loki.yml /config/grafana/provisioning/datasources/ \
+    && cp -n /temp/GUS.yml /config/grafana/provisioning/dashboards/ \
+    && cp -n /temp/GUS.json /config/grafana/data/dashboards/ \
+    && cp -n /temp/UUD.yml /config/grafana/provisioning/dashboards/ \
+    && cp -n /temp/UUD.json /config/grafana/data/dashboards/ \
     && cp -n /temp/grafana.ini /config/grafana/
 # cp -n /temp/grafana.db /config/grafana/data/ \
 sed -i "s| 3000| $GRAFANA_PORT|g" '/config/grafana/grafana.ini'
+sed -i "s|:8086|:$INFLUXDB_HTTP_PORT|g" '/config/grafana/provisioning/datasources/InfluxDB-Telegraf.yml'
+sed -i "s|:3100|: $LOKI_PORT|g" '/config/grafana/provisioning/datasources/Loki.yml'
 echo '[info] grafana fixed.'
