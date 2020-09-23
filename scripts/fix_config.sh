@@ -58,4 +58,5 @@ sed -i "s|:8086|:$INFLUXDB_HTTP_PORT|g" '/config/grafana/provisioning/datasource
 sed -i "s|:3100|:$LOKI_PORT|g" '/config/grafana/provisioning/datasources/Loki.yml'
 sed -i 's|"value": "/boot"|"value": "/rootfs/boot"|g' '/config/grafana/data/dashboards/UUD.json'
 sed -i 's|"value": "/mnt|"value": "/rootfs/mnt|g' '/config/grafana/data/dashboards/UUD.json'
+sed -i 's|"value": "\/rootfs\*\/"|"value": "\/disabled\*\/"|g' '/config/grafana/data/dashboards/UUD.json'
 echo '[info] grafana fixed.'
