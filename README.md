@@ -1,7 +1,7 @@
 # Grafana-Unraid-Stack
 Meet Gus! He has everything you need to start monitoring Unraid (Grafana - Influxdb - Telegraf - Loki - Promtail). 1 docker instead of 5+!
 
-A GUS demo dashboard (preview below) and falconexe's Ultimate UNRAID Dashboard (UUD) are included out of the box.
+A GUS demo dashboard (preview below) and falconexe's Ultimate UNRAID Dashboard v1.3 (UUD) are included out of the box.
 ![Preview](https://raw.githubusercontent.com/testdasi/grafana-unraid-stack-base/master/grafana-unraid-stack-screen.png)
 
 ## High-level instructions
@@ -11,7 +11,7 @@ A GUS demo dashboard (preview below) and falconexe's Ultimate UNRAID Dashboard (
 * Go to ip:3006 to access grafana, login with admin/admin and make changes as required to fit your system.
 
 ## Key features
-1. Grafana server. Include a default made-for-Unraid dashboard just waiting for your customisation.
+1. Grafana server. Include both a GUS demo dashboard and falconexe's Ultimate UNRAID Dashboard v1.3.
 1. Influxdb
 1. Telegraf with hddtemp or smartmontools (and ipmitool pre-installed)
 1. Loki + Promtail (so you can now watch your Unraid syslog in the dashboard)
