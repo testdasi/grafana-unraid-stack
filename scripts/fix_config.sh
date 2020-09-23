@@ -53,8 +53,9 @@ mkdir -p /config/grafana/data/plugins \
     && cp -n /temp/UUD.yml /config/grafana/provisioning/dashboards/ \
     && cp -n /temp/UUD.json /config/grafana/data/dashboards/ \
     && cp -n /temp/grafana.ini /config/grafana/
-# cp -n /temp/grafana.db /config/grafana/data/ \
 sed -i "s| 3000| $GRAFANA_PORT|g" '/config/grafana/grafana.ini'
 sed -i "s|:8086|:$INFLUXDB_HTTP_PORT|g" '/config/grafana/provisioning/datasources/InfluxDB-Telegraf.yml'
 sed -i "s|:3100|:$LOKI_PORT|g" '/config/grafana/provisioning/datasources/Loki.yml'
+sed -i 's|"value": "/boot"|"value": "/rootfs/boot"|g' '/config/grafana/data/dashboards/UUD.json'
+sed -i 's|"value": "/mnt|"value": "/rootfs/mnt|g' '/config/grafana/data/dashboards/UUD.json'
 echo '[info] grafana fixed.'
