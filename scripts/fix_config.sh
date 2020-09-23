@@ -44,8 +44,8 @@ mkdir -p /config/grafana/data/plugins \
     && mkdir -p /config/grafana/provisioning/datasources \
     && mkdir -p /config/grafana/provisioning/notifiers \
     && mkdir -p /config/grafana/provisioning/plugins \
-    && cp -n /temp/grafana.db /config/grafana/data/ \
     && rm -f /config/grafana/grafana-server.pid \
     && cp -n /temp/grafana.ini /config/grafana/
+# cp -n /temp/grafana.db /config/grafana/data/ \
 sed -i "s| 3000| $GRAFANA_PORT|g" '/config/grafana/grafana.ini'
 echo '[info] grafana fixed.'
