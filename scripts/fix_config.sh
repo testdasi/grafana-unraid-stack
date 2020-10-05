@@ -5,6 +5,7 @@ mkdir -p /config/influxdb \
     && mkdir -p /data/influxdb/meta \
     && mkdir -p /data/influxdb/wal \
     && rm -f /config/influxdb/influxd.pid \
+    && rm -f /config/influxdb/influxd.log \
     && cp -n /temp/influxdb.conf /config/influxdb/
 sed -i "s|:8086|:$INFLUXDB_HTTP_PORT|g" '/config/influxdb/influxdb.conf'
 sed -i "s|:8088|:$INFLUXDB_RPC_PORT|g" '/config/influxdb/influxdb.conf'
