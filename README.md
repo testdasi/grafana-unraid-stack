@@ -26,7 +26,7 @@ A GUS demo dashboard (preview below) and falconexe's Ultimate UNRAID Dashboard v
 * The included dashboards are intentionally not editable (grafana will tell you it's not possible and provide json). There are 2 ways to save your customization:
   * Save the json file and overwrite the GUS.json / UUD.json at /config/grafana/data/dashboards/.
   * Alternatively, you can copy the json text and import (+ icon -> Import)
-* For more info about Ultinate UNRAID dashboard, please refer to [the official thread](https://forums.unraid.net/topic/96895-ultimate-unraid-dashboard-uud/).
+* For more info about Ultimate UNRAID dashboard, please refer to [the official thread](https://forums.unraid.net/topic/96895-ultimate-unraid-dashboard-uud/).
 
 ## Usage
     docker run -d \
