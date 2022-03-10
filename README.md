@@ -25,8 +25,10 @@ A GUS demo dashboard (preview below) and falconexe's Ultimate UNRAID Dashboard v
 * Data is separated from config so, for example, you can have the data in RAM so it gets reset after reboot.
 * The included dashboards are intentionally not editable (grafana will tell you it's not possible and provide json). There are 2 ways to save your customization:
   * Save the json file and overwrite the GUS.json / UUD.json at /config/grafana/data/dashboards/.
-  * Alternatively, you can copy the json text and import (+ icon -> Import)
+  * Alternatively, you can copy the json text and import (+ icon -> Import).
+* All s-tag builds after 10 March 2022 is based on Ubuntu LTS (instead of Debian Buster).
 * For more info about Ultinate UNRAID dashboard, please refer to [the official thread](https://forums.unraid.net/topic/96895-ultimate-unraid-dashboard-uud/).
+  * Later versions of UUD requires more apps than I yet have time to code for unfortunately.
 
 ## Usage
     docker run -d \
