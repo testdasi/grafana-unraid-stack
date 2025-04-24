@@ -1,3 +1,6 @@
+# Deprecated
+In case it hasn't been obvious for quite some time, I have abandoned this project.
+
 # Grafana-Unraid-Stack
 Meet Gus! He has everything you need to start monitoring Unraid (Grafana - Influxdb - Telegraf - Loki - Promtail). 1 docker instead of 5+!
 
